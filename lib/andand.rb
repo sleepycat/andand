@@ -108,7 +108,7 @@ unless defined?(::AndAnd::BlankSlate)
     module AndAnd
       class BlankSlate
         def self.wipe
-          instance_methods.reject { |m| m =~ /^__/ }.each { |m| undef_method m }
+          instance_methods.reject { |m| m =~ /^__|object_id/ }.each { |m| undef_method m }
         end
         def initialize
           BlankSlate.wipe
